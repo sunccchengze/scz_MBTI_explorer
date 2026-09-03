@@ -28,13 +28,12 @@ corpus/
 ├── memory/
 │   ├── MEMORY.md                # 活记忆：每轮对话追加，只增不改
 │   └── drill-话外音.md           # 07 协议练习账（有真练习才写）
-└── sources/
-    └── SOURCES.md               # 来源台账：每条结论能追到哪个文件
+├── sources/
+│   └── SOURCES.md               # 来源台账：每条结论能追到哪个文件
 └── handoff/
     ├── S1-turbine-bench-开局指令.md
-    └── S1-v0-q1-20.draft.json   # 草稿；正式文件应落在 turbine/bench/
-└── sources/
-    └── SOURCES.md               # 来源台账：每条结论能追到哪个文件
+    ├── S1-v0-q1-20.draft.json   # 草稿；正式文件应落在 turbine/bench/
+    └── S1-两Agent审计-2026-09-03.md
 ```
 
 ## 更新协议（每次对话必读）

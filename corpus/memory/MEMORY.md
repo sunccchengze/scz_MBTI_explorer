@@ -130,3 +130,7 @@
 ### 2026-09-03 · 本人拍板 S1
 
 - 回「S1」。本会话**不改 turbine 仓**（Arena 通道绑在本仓分支）。已写交接：`corpus/handoff/S1-turbine-bench-开局指令.md` + 20 题草稿 JSON（数字从 turbine `evidence/metrics.json` / `claims.yaml` / `guo-line` 拉取；Q19–20 二次来源、禁止编论文页码）。下一步：本人开 turbine 新 Arena 会话，对照原文复现后 commit 到 `bench/`。S1 三小时停点后才 S2。
+### 2026-09-03 · 审计 turbine 两 Agent 的 S1
+
+- 1 号 `01a06630` @ `0fc15bca`：题库+自检+反向自测+F1/F2/F3。2 号 `01a0662f` @ `7acde761`：题库+verify，Q17 更唯一。
+- 建议用 1 号。F1 修正：0.054 就是相对 5.4%，绝对差是 0.047；1 号「6.2%」把相对量又除了一次。详 `corpus/handoff/S1-两Agent审计-2026-09-03.md`。不改 turbine、不合 PR。
