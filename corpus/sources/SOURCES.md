@@ -1,0 +1,52 @@
+# 语料来源台账
+
+> 每一条进入 `corpus/profile/` 的证据，都应能追到本文件的某一行。
+> 无法溯源的内容 = 不得入库（宁可标 `【待确认】`）。
+
+## 一、一手来源（本人授权）
+
+| ID | 来源 | 位置 | 提供了什么 | 授权状态 |
+| --- | --- | --- | --- | --- |
+| S1 | `sunccchengze/sunchengze-distilled` | `SKILL.md`（v1.1） | 人设卡、心智模型 M1–M5、决策启发式 13 条、风险警报 4 类、诚实边界、话题边界 | ✅ 本人 2026-08-31 授权全部提及内容进入蒸馏语料（"彻底把我自己带入"） |
+| S2 | 同上 | `references/acquisition/INTAKE_2026-08-31.md` | 四轮访谈问卷与本人回答（Q1–Q10 + 追问 + 第四轮 20 题） | ✅ 同上 |
+| S3 | 同上 | `references/research/01-writings.md` | 系统思维与方法论（→ M1 打脸链路、M2 借鉴转化） | ✅ 同上 |
+| S4 | 同上 | `references/research/02-conversations.md` | 与 AI 协作偏好、沟通风格、深交模式、恋爱沟通模式、团队协作二元角色论、家庭互动 | ✅ 同上 |
+| S5 | 同上 | `references/research/03-expression-dna.md` | 表达 DNA：反模式清单、表达偏好、视觉指纹、口语样本 | ✅ 同上 |
+| S6 | 同上 | `references/research/05-decisions.md` | 决策记录、决策原则、决策弱点、风险警报、技术自述基线 | ✅ 同上 |
+| S7 | 同上 | `references/research/04-external-views.md`、`06-timeline.md` | 外部视角与时间线 | ✅ 同上 |
+| S8 | 同上 | `memory/MEMORY.md` | 活记忆：跨会话累积的偏好与进展 | ✅ 同上 |
+| S9 | 同上 | `对外信息仓库-孙承泽账号档案.md` | 13 个公开仓库全景、技术环境、各仓库真货所在分支 | ✅ 同上 |
+
+## 二、既有档案（S1–S9 内部引用的更早材料）
+
+| ID | 档案 | 提供的证据 |
+| --- | --- | --- |
+| A1 | 人格判定书（收藏于 `wendang11`：`cases/sunccchengze-人格判定书.md`） | INTJ 判定、"情绪化 INTJ"、Fe 诡匠盲区、Se 劣势、低自信答对、过度交付 |
+| A2 | `0824-2026` HANDOFF | "先理解到根因再修"、要实拍截图证明、中文回复要求 |
+| A3 | 英仔爱心社招新站仓库（`docs/SUN-CHENGZE-PERSONAL-PROFILE.md`、`孙承泽的回复.md`） | 文案审查要求、FAQ 口语化改造、视觉与表达偏好 |
+| A4 | `zixue2026`（238 技能自学操作系统） | 系统性自学战略、科研式学习方法论 |
+| A5 | `turbine-blade-ai-platform` HANDOFF | 五条铁律、Day 19 事故、GHG「大师观后感」评审法 |
+
+> ⚠️ A1 的 INTJ 判定在 `profile/01-MBTI证据账本.md` 中被当作**待检验的主张**，不是结论。
+
+## 三、本仓库自有资产（方法层，非语料）
+
+| ID | 文件 | 作用 |
+| --- | --- | --- |
+| M1 | `references/knowledge/04-MBTI人格与匹配.md` | 理论与科学边界 |
+| M2 | `references/practical/MBTI类型访谈与相邻类型辨析.md` | 调查流程、证据账本表头、八功能区分问题库、15 组相邻类型对决 |
+| M3 | `scripts/mbti_case.py` | 结构化案例与报告审计（不打分） |
+| M4 | `documentation/mbti-skill-research.md` | 外部 MBTI skill 调研与"明确不做"清单 |
+
+## 四、外部参考仓库（只作参考，不构成语料）
+
+见 `reference-repos/REFERENCE-INDEX.md`。其中 `PKU-YuanGroup/Machine-Mindset`（Apache-2.0）的中文八维行为题库可作为后续访谈题源（需注明来源）。
+
+## 五、缺口与待补
+
+| 缺口 | 影响 | 怎么补 |
+| --- | --- | --- |
+| INTJ vs ENTJ 的 3 个高区分问题无答案 | 领先类型置信度卡在"中高"，无法升级 | `profile/03-待补充问题队列.md` 第一梯队 |
+| 缺少**近 30 天**的一手材料 | 语料最新时点为 2026-09-02，随时间衰减 | 每轮对话追加至 `memory/MEMORY.md` |
+| 缺少本人对本次判定的**反馈与纠正** | 未经本人复核的结论不能升级 | 下次聊天逐条过账本，让他划掉不认同的条目 |
+| 无正式量表结果（量表名称、时间、答题状态） | 无法与标准化工具交叉校验 | 若他做过，记录量表名与时间；不做也不影响定性分析 |

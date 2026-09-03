@@ -2,6 +2,31 @@
 
 本文件记录狗头军师对用户体验有影响的主要变化。项目尚未发布正式版本号的变更统一记录在“未发布”章节。
 
+## 未发布 — 2026-09-03
+
+### 新增能力
+
+- **孙承泽专属语料库**：新增 `corpus/`，含 `profile/00-孙承泽人物档案.md`（学业坐标、技术自述基线、心智模型 M1–M5、决策启发式 13 条、社交与亲密关系、已知弱点）、`profile/01-MBTI证据账本.md`（5 个候选、26 条证据、4 组相邻类型对决、Big Five 交叉校验、推翻条件）、`profile/02-表达DNA与语言样本.md`、`profile/03-待补充问题队列.md`、`memory/MEMORY.md`、`sources/SOURCES.md`。种子语料来自 `sunccchengze/sunchengze-distilled`（本人授权的活的主本）。
+- **语料更新协议**：只追加不删改；`【一手】`/`【档案】`/`〔推断〕`/`【待确认】`分层标注；推断必须给推翻条件；对话结束前追加活记忆；恋爱等敏感材料只作决策模式证据，不冒充本人对外发言。
+- **外部参考仓库**：新增 `reference-repos/`，收录 7 个 MBTI／人格分析仓库（5 个 star > 1k），并附 `REFERENCE-INDEX.md` 说明每个仓库能借什么、不能借什么；`scripts/fetch_reference_repos.sh` 按固定 commit 重建被忽略的大体积仓库。
+- **初始 MBTI 工作结论**：领先 INTJ（中高置信度），备选 ENTJ > INFJ ≈ ISTJ，INTP 已排除；明确标注为可推翻工作假设，附改判条件。
+
+### 体验改进
+
+- **本人路由**：`SKILL.md` 新增「本人语料库」章节与按需加载路由——涉及本人定型、自我认知或决策风格时先读 `corpus/`，先调用已有证据，只追问会改变结论的问题。
+- **仓库体检报告**：新增 `documentation/仓库体检报告.md`，用 diff 上游 `shengjidaguai-china/goutoujunshi` 的物证说明「仓库名与内容不对应」的现状（MBTI 仅占 12.2%），并给出改名派／正名派两套方案。
+
+### 可靠性与边界
+
+- **验证器隔离**：`scripts/validate_skill.py` 增加 `VENDORED_PARTS` 白名单，链接与占位符检查跳过 `reference-repos/`，避免第三方仓库的断链导致本仓校验失败。
+- **许可证治理**：两个未声明许可证的参考仓库（`evolving_personality`、`wordware-ai/twitter`）只作公开事实观察，不复制内容，沿用 `mbti-skill-research.md` 既有规则。
+- **体积控制**：ACGTI、Machine-Mindset、evolving_personality 三个大体积仓库不进 Git，改由脚本按需重建。
+
+### 兼容性
+
+- 没有需要用户迁移的破坏性变更。
+- `corpus/` 与 `reference-repos/` 均不属于运行时安装白名单（`SKILL.md`、`agents/`、`references/`、`scripts/`、`assets/`）。
+
 ## 未发布 — 2026-08-11
 
 ### 新增能力

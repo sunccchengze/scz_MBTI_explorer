@@ -6,3 +6,12 @@ __pycache__/
 
 # The raw research workspace is intentionally not part of the distributable skill.
 /恋爱知识库/
+
+# 外部参考仓库：体积大或含二进制素材的三个走脚本按需拉取，不进 Git。
+# 其余小型纯文本参考仓库随仓库一起提交，便于离线查阅与 diff。
+/reference-repos/ACGTI/
+/reference-repos/Machine-Mindset/
+/reference-repos/evolving_personality/
+
+# 依赖锁文件对只读参考没有价值，只制造 diff 噪音
+/reference-repos/**/package-lock.json

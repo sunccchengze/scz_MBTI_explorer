@@ -16,6 +16,11 @@ SKILL_MAX_LINES = 150
 SKILL_MAX_CHARACTERS = 5_000
 SKILL_MAX_APPROX_TOKENS = 4_500
 
+# Vendored third-party material under these top-level directories is reference
+# only: it is not authored here, does not follow this repository's link or
+# placeholder conventions, and must not fail local validation.
+VENDORED_PARTS = {"reference-repos", ".git", "__pycache__", "node_modules"}
+
 REQUIRED_KNOWLEDGE = (
     "01-证据分级与内容边界.md",
     "04-MBTI人格与匹配.md",
@@ -215,9 +220,19 @@ def validate_runtime_boundaries() -> None:
                 )
 
 
+def iter_owned_files(pattern: str = "*"):
+    """Yield repository-owned files, skipping vendored third-party references."""
+    for path in ROOT.rglob(pattern):
+        if not path.is_file():
+            continue
+        if VENDORED_PARTS.intersection(path.relative_to(ROOT).parts):
+            continue
+        yield path
+
+
 def validate_markdown_links() -> None:
     link_pattern = re.compile(r"\]\(([^)]+)\)")
-    for markdown in ROOT.rglob("*.md"):
+    for markdown in iter_owned_files("*.md"):
         text = markdown.read_text(encoding="utf-8")
         for raw_target in link_pattern.findall(text):
             target = raw_target.strip().split("#", 1)[0]
@@ -231,8 +246,8 @@ def validate_markdown_links() -> None:
 
 
 def validate_placeholders() -> None:
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or ".git" in path.parts:
+    for path in iter_owned_files():
+        if ".git" in path.parts:
             continue
         if path.suffix.lower() not in {".md", ".yaml", ".yml", ".py"}:
             continue

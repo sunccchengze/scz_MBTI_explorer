@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Sauna brand tokens (https://www.sauna.ai/brand) mapped onto the shadcn/ui
+ * HSL variable system:
+ *   Ink #171814 → foreground/primary, Paper #FFFFFF → cards,
+ *   Desk #FAFAF9 → page background, Canvas #F5F3F0 → secondary/muted,
+ *   Lichen #93EFA4 → accent, Forest #003116 → dark surfaces/ring,
+ *   Steel #395C6C → muted foreground, Blue #1264A3 → links.
+ */
+@layer base {
+  :root {
+    --background: 60 8% 98%; /* Desk */
+    --foreground: 75 9% 9%; /* Ink */
+    --card: 0 0% 100%; /* Paper */
+    --card-foreground: 75 9% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 75 9% 9%;
+    --primary: 75 9% 9%; /* Ink */
+    --primary-foreground: 60 8% 98%;
+    --secondary: 36 20% 95%; /* Canvas */
+    --secondary-foreground: 75 9% 9%;
+    --muted: 36 20% 95%; /* Canvas */
+    --muted-foreground: 199 31% 32%; /* Steel */
+    --accent: 131 74% 76%; /* Lichen */
+    --accent-foreground: 151 78% 20%; /* Forest (lightened) */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 40 12% 90%;
+    --input: 40 12% 90%;
+    --ring: 151 78% 20%; /* Forest (lightened) */
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}

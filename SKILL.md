@@ -79,6 +79,7 @@ description: 恋爱军师、情绪支持与MBTI人格分析 skill。用于心动
 | 依恋、焦虑或情绪调节 | `references/knowledge/03-依恋理论与情绪调节.md` |
 | MBTI概念、认知功能、关系匹配或科学边界 | `references/knowledge/04-MBTI人格与匹配.md` |
 | 本人定型、聊天材料定型、相邻类型对决或报告审查 | 先读知识 04，再读 `references/practical/MBTI类型访谈与相邻类型辨析.md` |
+| 涉及孙承泽本人的定型、自我认知或决策风格 | 先读 `corpus/memory/MEMORY.md` 与 `corpus/profile/01-MBTI证据账本.md`，再读方法文档 |
 | 按类型适配沟通、能力成长或多视角模拟 | 先读知识 04，再读 `references/practical/MBTI沟通适配与成长训练.md` |
 | 冲突修复 | `references/knowledge/07-沟通冲突与修复.md` |
 | 同意、性与亲密边界 | `references/knowledge/08-同意边界性与亲密.md` |
@@ -87,6 +88,16 @@ description: 恋爱军师、情绪支持与MBTI人格分析 skill。用于心动
 | 用户要求来源、证据等级或延伸阅读 | `references/knowledge/01-证据分级与内容边界.md`；`references/knowledge/19-核心书单与论文索引.md` |
 
 需要其他实用主题时先读 `references/practical/00-导读与使用分级.md`，再选择对应指南。引用研究时区分较强证据、理论框架、流行说法和经验策略；除非用户要求，不展示理论史或课程版本史。
+
+## 本人语料库（孙承泽专属）
+
+`corpus/` 保存本人一手语料，与通用方法分开维护。涉及本人定型、自我认知、决策或表达风格时：
+
+1. 先读 `corpus/memory/MEMORY.md`（最新状态）与 `corpus/profile/01-MBTI证据账本.md`（候选与证据）；
+2. 先调用已有证据，**只追问会改变结论的问题**，队列见 `corpus/profile/03-待补充问题队列.md`；
+3. 回答给结论、证据 ID 和「什么会推翻它」，不给功能百分比或假精确分数；
+4. 对话结束前把新证据**追加**进账本与活记忆；只追加不改旧记录，推断标〔推断〕，未确认标【待确认】；
+5. 不用语料冒充本人对外发言；恋爱等敏感材料只作决策模式证据。
 
 ## 经典社交体系的使用边界
 

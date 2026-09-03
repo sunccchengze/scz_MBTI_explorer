@@ -15,6 +15,8 @@
 | 验证器 | `scripts/validate_skill.py` | 检查结构、元数据、必需文件、上下文预算、运行时边界、断链和场景覆盖 |
 | 本地记忆 | `scripts/memory_store.py` | 执行同意门禁、来源校验、精简档案、限量、撤销、暂停和硬删除 |
 | MBTI案例审计 | `scripts/mbti_case.py` | 初始化与校验候选集、证据和反证结构，审查报告缺项与过度断言；不自动计算人格类型 |
+| 本人语料库 | `corpus/` | 保存孙承泽本人一手语料（人物档案、MBTI证据账本、表达DNA、待补充问题队列、活记忆、来源台账）；是 MBTI 分析的**主语** |
+| 外部参考 | `reference-repos/` | 只读的第三方 MBTI／人格参考仓库，不入运行时白名单，验证器跳过 |
 | 项目文档 | `documentation/` | 记录产品意图、运行流程、权限与自动化边界 |
 
 ## 运行方式
@@ -57,4 +59,5 @@ Codex 根据 Skill 描述决定是否加载 `SKILL.md`。被调用后，代理�
 - [变量与秘密](variables.md)
 - [知识库治理](knowledge-base.md)
 - [GitHub MBTI Skill 调研与整合决策](mbti-skill-research.md)
+- [仓库体检报告：为什么 scz_MBTI_explorer 里没有 MBTI 探索者](仓库体检报告.md)
 - [自动化与代理边界](automation.md)

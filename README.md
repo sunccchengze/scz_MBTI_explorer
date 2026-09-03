@@ -2,6 +2,10 @@
 
 **简体中文** | [English](README_EN.md)
 
+> ⚠️ **仓库身份说明（2026-09-03）**：本仓库名为 `scz_MBTI_explorer`，但当前内容主体仍是恋爱军师「狗头军师」，
+> MBTI 只占约 12%（5 份文件）。**正在把 MBTI 从子功能提升为主干**，并已建立孙承泽本人语料库 `corpus/`。
+> 完整体检与改造方案见 [`documentation/仓库体检报告.md`](documentation/仓库体检报告.md)。
+
 > 把情绪支持、关系科学与可执行策略，装进一个真正站在用户一边的 AI 恋爱军师。
 
 [![GitHub Stars](https://img.shields.io/github/stars/powerycy/goutoujunshi?style=social)](https://github.com/powerycy/goutoujunshi/stargazers)
@@ -119,6 +123,11 @@ ChatLab是可选依赖。安装并准备好用户自己取得的聊天导出文�
 goutoujunshi/
 ├── SKILL.md                    # 核心行为与工作流
 ├── agents/openai.yaml         # Codex 展示与默认提示词
+├── corpus/                    # 孙承泽本人语料库（MBTI 探索者的主语）
+│   ├── profile/               # 人物档案、MBTI证据账本、表达DNA、待补充问题队列
+│   ├── memory/MEMORY.md       # 活记忆：每轮对话追加，只增不改
+│   └── sources/SOURCES.md     # 来源台账：每条证据可溯源
+├── reference-repos/           # 外部 MBTI／人格参考仓库（只读，见 REFERENCE-INDEX.md）
 ├── references/
 │   ├── knowledge/             # 关系科学与跨学科知识文档
 │   └── practical/             # 沟通、工具适配与记忆规则
@@ -144,6 +153,7 @@ goutoujunshi/
 
 | 日期 | 类型 | 更新 | 用户价值 |
 | --- | --- | --- | --- |
+| 2026-09-03 | 语料库 | 新增 `corpus/`（人物档案、MBTI证据账本、表达DNA、待补充问题队列、活记忆、来源台账）；收录 7 个外部参考仓库；`SKILL.md` 增加本人语料库路由；验证器跳过 `reference-repos/`；新增仓库体检报告与推送手册。 | 从"通用 MBTI 方法框架"变成"专属于孙承泽的 MBTI 探索者"——先调用已有证据，只追问会改变结论的问题，不再反复发同一份问卷。 |
 | 2026-08-11 | MBTI能力 | 新增四维／八功能证据边界、类型访谈、证据账本、相邻类型对决、报告质量门槛、沟通适配、成长练习和多视角模拟；加入结构化案例审计工具。 | 从“记录一个类型标签”升级为可追问、可反证、可纠正的MBTI分析，同时避免假精确、读心和黄金配对。 |
 | 2026-08-03 | 记忆与聊天分析 | 保留老版建档、情绪承接、关系判断、主动推进和即时话术能力；增加首次同意后自动更新且可撤销的本地精简记忆，以及聊天截图、导出记录和ChatLab已有数据分析。 | 维持原有军师体验，同时支持跨任务复用有限档案、锁定聊天说话人并分析关系趋势；不保存完整聊天，也不声称能直接导出聊天软件数据。 |
 | 2026-07-23 | 架构 | 收缩 `SKILL.md` 为轻量行为与路由内核；新增经典社交体系机制／风险与伦理能力转译，覆盖 Blueprint 内在状态、自然流、冷读和 Mystery 结构化互动；验证器改为必需文件、上下文预算和运行时边界，增加白名单安装模式并补充回归场景。 | 只按当前问题加载 1–3 份资料，在保留实战颗粒度的同时让日常上下文成本保守估算降低 48.3%；安装副本不携带项目资料也能自检，并阻止读心、操控和阶段升级误用。 |
@@ -151,6 +161,42 @@ goutoujunshi/
 | 2026-07-22 | 扩充 | 调研 GitHub 上的童锦程、梵公子及关系副驾类 Skill，提炼展示面、现场取材、对话接抛、轻松调情与即时校准，新增七种主策略、三层话术编排、36 条话术骨架和对话演练，并同步能力介绍与关键流程。 | 不照搬人设或套路；用户问“这句怎么回”时先得到一条真正能发的首选成品，并能根据积极、含糊或拒绝反应继续。 |
 | 2026-07-22 | 改进 | 支持聊天截图、聊天导出文本和复制粘贴的即时通讯内容，并区分聊天、转述、通话、线下互动和混合素材。 | 继续先梳理情绪，再依据可确认的原文和行为分析，减少把文字聊天脑补成线下现场或把推测写成事实。 |
 | 2026-07-21 | 新增 | 增加投入失衡与体面退场模块，包含事件型观察窗口、降级投入与退出话术，并覆盖同性/未出柜、异地、同事、非单偶及高风险场景。 | 帮助用户判断是否继续投入、如何保护时间精力，以及何时应转入安全流程。 |
+
+## 孙承泽专属语料库（`corpus/`）
+
+MBTI 分析需要三样东西：**方法论**（怎么问、怎么记账、怎么反证）、**工具**（结构化案例与审计）、**语料**（判谁、拿什么判）。
+本仓库原来只有前两样——MBTI 在 `SKILL.md` 里只是"用户临时填写的一栏"。`corpus/` 补上第三样。
+
+| 文件 | 内容 |
+| --- | --- |
+| `corpus/README.md` | 更新协议：只追加不删改、〔推断〕/【待确认】分层标注、推断必须给推翻条件 |
+| `corpus/profile/00-孙承泽人物档案.md` | 人物档案：学业坐标、技术自述基线、心智模型 M1–M5、决策启发式 13 条、社交与亲密关系、已知弱点 |
+| `corpus/profile/01-MBTI证据账本.md` | 5 个候选类型、26 条证据（每条含支持/反对/非类型解释）、4 组相邻类型对决、Big Five 交叉校验、推翻条件 |
+| `corpus/profile/02-表达DNA与语言样本.md` | 语言指纹、反模式清单、口语样本 |
+| `corpus/profile/03-待补充问题队列.md` | 下一轮最值得问的问题（按信息量排序，含"已饱和不用再问"清单） |
+| `corpus/memory/MEMORY.md` | 活记忆，每轮对话追加 |
+| `corpus/sources/SOURCES.md` | 来源台账与缺口清单 |
+
+**当前工作结论**：领先 INTJ（中高置信度），备选 ENTJ > INFJ ≈ ISTJ，INTP 已排除。
+这是可推翻的工作假设，不是诊断——账本里写明了改判条件。
+
+> 语料来自 `sunccchengze/sunchengze-distilled`（本人授权的活的主本）。
+> 恋爱等敏感材料只作决策模式证据，不用于对外内容；不冒充本人对外发言。
+
+## 外部参考仓库（`reference-repos/`）
+
+7 个 MBTI／人格分析相关仓库（5 个 star > 1k），用于方法借鉴与题库补充，只读不入 Skill 运行时。
+逐个说明「能借什么/不能借什么」见 [`reference-repos/REFERENCE-INDEX.md`](reference-repos/REFERENCE-INDEX.md)。
+
+| 仓库 | Star | 用途 |
+| --- | --- | --- |
+| [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi) | ⭐2736 | 本仓内容的上游（diff 物证） |
+| [therealXiaomanChu/ex-skill](https://github.com/therealXiaomanChu/ex-skill) | ⭐6186 | 人物蒸馏流水线 |
+| [notdog1998/yourself-skill](https://github.com/notdog1998/yourself-skill) | ⭐3351 | Self Memory + Persona 二分（对标 `corpus/`） |
+| [wordware-ai/twitter](https://github.com/wordware-ai/twitter) | ⭐1448 | 人格档案的输出契约（⚠️ 无许可证，只作观察） |
+| [agent-topia/evolving_personality](https://github.com/agent-topia/evolving_personality) | ⭐1146 | Jung 八功能 Agent 人格框架（⚠️ 无许可证，只作观察） |
+| [tianxingleo/ACGTI](https://github.com/tianxingleo/ACGTI) | ⭐1058 | 情境式题干写法与结果页信息架构 |
+| [PKU-YuanGroup/Machine-Mindset](https://github.com/PKU-YuanGroup/Machine-Mindset) | ⭐542 | 中文八维行为题库（题源） |
 
 ## 参与建设
 
