@@ -106,3 +106,8 @@
 - **执行**：`git push origin arena/01a0657c-scz-mbti-explorer:main` 成功，main `62d7d71 → d5c51a0`（**10 个提交、281 文件、+25650 行**）；ls-remote 核对 main == 会话分支 == d5c51a0 ✅；arena/01a06527 保留在 db8715f（已含于历史）。
 - **⚠️ 浅克隆假阴性教训（AI 侧，入档）**：初次祖先自检显示"main 有 HEAD 没有的提交"——**假阴性**：本工作区是浅克隆（`is-shallow-repository=true`），历史被截断导致 `merge-base --is-ancestor` 误判。按手册纪律"自检不过就不推"，先 unshallow（`git fetch origin --unshallow '+refs/heads/*:refs/remotes/origin/*'`）拿全史后重判为线性。**规则固化：任何祖先/历史判定前，先确认非浅克隆。**（锚点家族第 4 案：时间/文件名/时区/浅历史——"先查证再判断"再+1）
 - **描述核实**：两个 About 均已由本人替换生效（MBTI 仓用推荐版 A；Can_AI_Write_Papers 用"三篇 no-go 实验记录"版）。
+### 2026-09-03 · AGENTS.md 落地（工作手册总入口）+ 父分支删除（追加）
+
+- **AGENTS.md 建立（本人指令："超级详细写在最显眼处，不遗漏"）**：根目录 `AGENTS.md`，README 顶部加指路牌。收录：三十秒版八条／主人上下文（身份·时区·作息·主线·MBTI 锁定·生态位）／沟通纪律 7 条／诚实与证据纪律（分层标注·记账规则·反自负·**判例库 6 案**）／Git 与会话纪律（分支规则·推送铁律·**快进推送五步**·浅克隆警告·gh 权限边界）／语料库协议（调用顺序·**对话收工清单 5 项**）／决策监护授权／质量门 7 条（脚印原则·红队·时效标记·负结果保护·风险警报·话题边界）／指令层级 5 层／文件地图／维护规则。
+- **父分支删除（本人指令）**：`arena/01a06527-scz-mbti-explorer`（db8715f）已完整含于 main 历史（merge-base 确认 ✅），`git push origin --delete` 删除，远端仅剩 main + 本会话分支。
+- **纪律自检**：本手册与 corpus/README、BRANCH-SAFETY、04 协议、SKILL.md 的既有内容**零删除**，全部为汇总+指路；指令层级把各文件排了序，避免 agent 无所适从。
