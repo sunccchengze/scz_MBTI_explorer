@@ -99,3 +99,10 @@
 - **作息细化（一手）**：23:40 睡、6:50 起、午休 20–40 分钟（趴桌子）——已更新 profile/00 与开局速查（新增作息行+时区提醒）。
 - **仓库描述替换（待本人执行）**：`gh repo edit` 尝试失败——Arena 授权 token 无仓库管理权限（HTTP 403 "Resource not accessible by integration"，能推代码不能改元数据）。推荐文案与备选已给本人，由其在 GitHub 网页或本地 gh 执行；Can_AI_Write_Papers 的"321456789"同样待本人处理。
 - **AI 侧操作教训（本轮新增）**：edit_file 连续 5 次漏传 `path` 参数——**工具调用发出前先自查参数完整性**，与"锚点先查证"同一条根。
+### 2026-09-03 · 快进推送妙招习得 + 三分支取并集推 main 完成（追加）
+
+- **妙招习得（本人指路）**：从 `SCZ_Archived/BRANCH-SAFETY.md`（"Arena Agent 生存手册"）学到**快进推送**——`git push origin <分支>:main`：纯 Git 协议挪 ref、不产生"PR 合并/关闭"事件故不触发 Arena 关闭会话通道。纪律三条：①先 `git merge-base --is-ancestor origin/main HEAD` 自检（不过就不推）；②先推自己分支保命；③**绝不 `-f` 强推 main**（自己分支可以）。
+- **三分支对比结果（unshallow 后判定）**：完全**线性**——`main(62d7d71, PR#1 wode 会话) → c27049c 建语料库 → 89c3fcf 正名 → db8715f 第二轮对决(=arena/01a06527 tip) → 本会话 7 提交 → d5c51a0`。**并集 = d5c51a0（本分支）**，arena/01a06527 与 main 均为其严格祖先，无需 merge。
+- **执行**：`git push origin arena/01a0657c-scz-mbti-explorer:main` 成功，main `62d7d71 → d5c51a0`（**10 个提交、281 文件、+25650 行**）；ls-remote 核对 main == 会话分支 == d5c51a0 ✅；arena/01a06527 保留在 db8715f（已含于历史）。
+- **⚠️ 浅克隆假阴性教训（AI 侧，入档）**：初次祖先自检显示"main 有 HEAD 没有的提交"——**假阴性**：本工作区是浅克隆（`is-shallow-repository=true`），历史被截断导致 `merge-base --is-ancestor` 误判。按手册纪律"自检不过就不推"，先 unshallow（`git fetch origin --unshallow '+refs/heads/*:refs/remotes/origin/*'`）拿全史后重判为线性。**规则固化：任何祖先/历史判定前，先确认非浅克隆。**（锚点家族第 4 案：时间/文件名/时区/浅历史——"先查证再判断"再+1）
+- **描述核实**：两个 About 均已由本人替换生效（MBTI 仓用推荐版 A；Can_AI_Write_Papers 用"三篇 no-go 实验记录"版）。
