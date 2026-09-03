@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the distributable goutoujunshi skill without third-party packages."""
+"""Validate the distributable scz-mbti-explorer skill without third-party packages."""
 
 from __future__ import annotations
 
@@ -72,7 +72,7 @@ def validate_frontmatter() -> None:
     description_match = re.search(r"^description:\s*(.+)$", frontmatter, re.MULTILINE)
     name = name_match.group(1).strip() if name_match else ""
     description = description_match.group(1).strip() if description_match else ""
-    if name != "goutoujunshi" or not re.fullmatch(r"[a-z0-9-]{1,64}", name):
+    if name != "scz-mbti-explorer" or not re.fullmatch(r"[a-z0-9-]{1,64}", name):
         ERRORS.append(f"invalid skill name: {name!r}")
     if not description or len(description) > 1024 or "<" in description or ">" in description:
         ERRORS.append("description is empty, too long, or contains angle brackets")
@@ -120,8 +120,8 @@ def validate_inventory(runtime_only: bool) -> None:
     for filename in REQUIRED_PRACTICAL:
         require(f"references/practical/{filename}")
     agent = ROOT / "agents/openai.yaml"
-    if agent.is_file() and "$goutoujunshi" not in agent.read_text(encoding="utf-8"):
-        ERRORS.append("agents/openai.yaml default prompt must mention $goutoujunshi")
+    if agent.is_file() and "$scz-mbti-explorer" not in agent.read_text(encoding="utf-8"):
+        ERRORS.append("agents/openai.yaml default prompt must mention $scz-mbti-explorer")
 
 
 def validate_routes_and_regressions(runtime_only: bool) -> None:
@@ -275,7 +275,7 @@ def main() -> int:
         for error in ERRORS:
             print(f"ERROR: {error}")
         return 1
-    print("goutoujunshi validation passed")
+    print("scz-mbti-explorer validation passed")
     return 0
 
 

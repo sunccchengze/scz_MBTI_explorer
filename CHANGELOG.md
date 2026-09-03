@@ -1,6 +1,23 @@
 # 更新日志
 
-本文件记录狗头军师对用户体验有影响的主要变化。项目尚未发布正式版本号的变更统一记录在“未发布”章节。
+本文件记录 MBTI 探索者（原「狗头军师 goutoujunshi」）对用户体验有影响的主要变化。项目尚未发布正式版本号的变更统一记录在“未发布”章节。
+
+## 未发布 — 2026-09-03（正名）
+
+### 🔴 破坏性变更：Skill 更名
+
+- **Skill 由「狗头军师 goutoujunshi」正式更名为「MBTI 探索者 `scz-mbti-explorer`」**，仓库名、Skill 名与内容终于对齐。
+- `SKILL.md` 重构为**双入口**：主干是人格探索（先读 `corpus/` 语料，只追问会改变结论的问题），恋爱与关系咨询降级为应用场景之一。按需加载表重排，MBTI 与语料路由置顶。
+- `agents/openai.yaml`：`display_name` 改为「MBTI 探索者」，默认提示词改为 `$scz-mbti-explorer`。
+- `scripts/validate_skill.py`：name 断言、`$skill` 引用与通过提示同步改名。
+- `scripts/memory_store.py`：本地存储目录改为 `scz-mbti-explorer`；**首次调用时自动把旧的 `goutoujunshi` 目录迁移过来**，已同意的关系档案不会丢失；环境变量 `GOUTOUJUNSHI_MEMORY_DIR` 仍作为旧名兼容读入，新名为 `SCZ_MBTI_EXPLORER_MEMORY_DIR`。
+- 文档同步正名：README（首页与用法顺序重写）、README_EN、CONTRIBUTING、`documentation/product.md`／`architecture.md`／`automation.md`／`mbti-skill-research.md`。README 顶部保留「源自 `goutoujunshi`（MIT）」的沿革声明。
+
+### 兼容性
+
+- **行为契约未变**：情绪落地／事实拆分／利益判断／明确建议／行动收束五步流程、说话人映射、ChatLab 边界、长期记忆同意机制与安全边界全部保留。
+- 45 份关系知识与话术文档原样保留（MIT 上游资产），仍是关系场景的真实能力。
+- 需要在 Codex 中用新名调用：`$scz-mbti-explorer`。若旧安装目录名为 `goutoujunshi`，建议重新克隆到 `scz-mbti-explorer`。
 
 ## 未发布 — 2026-09-03
 

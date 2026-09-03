@@ -1,20 +1,28 @@
-# Goutoujunshi · AI Relationship Strategist
+# MBTI Explorer · scz-mbti-explorer
 
 [简体中文](README.md) | **English**
 
-> Emotional support, relationship science, and practical strategy in an AI relationship adviser that genuinely takes the user's side.
+> An MBTI explorer grounded in **Sun Chengze's own corpus**: a falsifiable evidence ledger that answers “what kind of person am I, why do I do this, and how do I get stronger.”
+> Relationship and dating advice is **one application** of it, not the whole thing.
 
-[![GitHub Stars](https://img.shields.io/github/stars/powerycy/goutoujunshi?style=social)](https://github.com/powerycy/goutoujunshi/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/sunccchengze/scz_MBTI_explorer?style=social)](https://github.com/sunccchengze/scz_MBTI_explorer/stargazers)
 
-If Goutoujunshi helps you spend less time overthinking and make one more clear-headed decision in a relationship, please consider giving it a 🌟 **Star**. Your support helps more people find the project and keeps the knowledge base growing.
+If it helps you spend less time overthinking and make one more clear-headed decision, please consider giving it a 🌟 **Star**.
 
-Most relationship advice offers only two answers: “Go for it” or “Break up.” Goutoujunshi tries to do better. It starts by acknowledging the user's emotions, then separates facts from assumptions and unknowns. It considers attraction alongside practical circumstances, reciprocity, risk, opportunity cost, and long-term options before turning the analysis into a concrete next step.
+Most MBTI tools offer only two outcomes: “You are an INTJ” or “Take the test again.” MBTI Explorer tries to do better. It **reads your existing corpus first and only asks questions that would change the conclusion**. It hands you candidates, evidence, counterevidence, and falsification conditions together. It does not turn a type into a destiny, and it does not dress a few sentences up as a fake-precise percentage.
+
+It is not a quiz generator. It maintains a **corpus that keeps growing** (`corpus/`): a personal profile, a 29-item MBTI evidence ledger, expression DNA, a queue of open questions, and living memory. It also inherits a complete relationship-adviser toolkit — emotional support, chat-log analysis, relationship judgment, and sendable replies — but those are now **applications of personality exploration** rather than the entire product.
+
+> 📌 **Provenance (2026-09-03)**: this repository derives from the relationship adviser `goutoujunshi`
+> (upstream [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi), MIT).
+> MBTI was promoted from a sub-feature to the trunk, and a personal corpus was built on top.
+> See `documentation/仓库体检报告.md` (Chinese) for the full audit.
 
 This is more than a library of scripted replies. It can analyze chat screenshots, exported text, and the user's account of events while preserving evidence boundaries. It can turn analysis into a message ready to send, a specific invitation, a first-date plan, or a conversation exercise that can be reviewed afterward. It is a Codex Skill for the full relationship lifecycle, designed for diverse relationships and capable of explaining the reasoning behind its advice.
 
 ## What It Can Help With
 
-| Your situation | How Goutoujunshi helps |
+| Your situation | How it helps |
 | --- | --- |
 | You do not know how to reply | Gives you one message you can send immediately, followed by timing and response branches |
 | You want to pursue someone, reconnect, ask them out, or move the relationship forward | Provides concrete actions and adjusts the plan based on the other person's response |
@@ -27,7 +35,7 @@ This is more than a library of scripted replies. It can analyze chat screenshots
 
 ## No Assumptions About Who You Should Love
 
-Goutoujunshi supports heterosexual, gay, lesbian, bisexual, pansexual, and asexual users. It respects transgender, non-binary, and other gender identities. It can discuss single dating, long-term partnerships, marriage, long-distance relationships, remarriage, cross-cultural relationships, and consensual non-monogamy.
+It supports heterosexual, gay, lesbian, bisexual, pansexual, and asexual users. It respects transgender, non-binary, and other gender identities. It can discuss single dating, long-term partnerships, marriage, long-distance relationships, remarriage, cross-cultural relationships, and consensual non-monogamy.
 
 The system does not impose fixed gender roles. Users of any gender can take the initiative or choose a highly proactive approach. In common heterosexual dating contexts in China, it may suggest that a man raise his level of initiative by one step when there is no clear rejection or discomfort. This is only a cultural calibration that individual preferences and real-world feedback can override—not a rule that men must pursue while women wait. The assessment always depends on the specific people, their behavior, mutual willingness, and practical circumstances.
 
@@ -56,13 +64,13 @@ The knowledge base distinguishes stronger research evidence from theoretical fra
 Clone the repository into your Codex Skills directory:
 
 ```bash
-git clone https://github.com/powerycy/goutoujunshi.git ~/.codex/skills/goutoujunshi
+git clone https://github.com/sunccchengze/scz_MBTI_explorer.git ~/.codex/skills/scz-mbti-explorer
 ```
 
 Then enter this in Codex:
 
 ```text
-Use $goutoujunshi to help me process my emotions, assess my current relationship, and decide what to do next.
+Use $scz-mbti-explorer to help me process my emotions, assess my current relationship, and decide what to do next.
 ```
 
 On first use, it will ask for:
@@ -83,7 +91,7 @@ You can leave unknown fields blank or simply tell the story. The Skill will orga
 You can say:
 
 ```text
-Use $goutoujunshi to determine whether ENTJ or INTJ fits me better. Do not give me a quick quiz; retain candidates, evidence, counterevidence, and conditions that would falsify the conclusion.
+Use $scz-mbti-explorer to determine whether ENTJ or INTJ fits me better. Do not give me a quick quiz; retain candidates, evidence, counterevidence, and conditions that would falsify the conclusion.
 ```
 
 The Skill asks low-friction scenario questions in rounds, maintains an evidence ledger, directly compares adjacent candidates, and treats Big Five traits, roles, culture, and stress as competing explanations. For a long auditable case, `python3 scripts/mbti_case.py init --help` creates a local structure. The script validates the investigation; it does not automatically assign a type.
@@ -93,10 +101,10 @@ The Skill asks low-friction scenario questions in rounds, maintains an evidence 
 ChatLab is an optional dependency. After installing it and preparing chat exports that you obtained yourself, you can say:
 
 ```text
-Use $goutoujunshi with ChatLab to analyze the last three months of chats between me and Person A.
+Use $scz-mbti-explorer with ChatLab to analyze the last three months of chats between me and Person A.
 ```
 
-Goutoujunshi first previews the import plan, then limits queries by conversation, participant, and time range. It does not directly read, decrypt, or export databases from messaging apps. Without ChatLab, you can still paste text or upload screenshots for analysis.
+It first previews the import plan, then limits queries by conversation, participant, and time range. It does not directly read, decrypt, or export databases from messaging apps. Without ChatLab, you can still paste text or upload screenshots for analysis.
 
 ## How a Typical Answer Is Produced
 
@@ -116,13 +124,18 @@ Long-term memory and ChatLab are used only when the user consents or supplies th
 ## Project Structure
 
 ```text
-goutoujunshi/
-├── SKILL.md                    # Core behavior and workflow
+scz_MBTI_explorer/
+├── SKILL.md                    # Core behavior and workflow (MBTI trunk + relationship application)
 ├── agents/openai.yaml         # Codex display metadata and default prompt
+├── corpus/                    # Sun Chengze's personal corpus (the subject of the exploration)
+│   ├── profile/               # Profile, MBTI evidence ledger, expression DNA, open questions
+│   ├── memory/MEMORY.md       # Living memory: append-only, one entry per session
+│   └── sources/SOURCES.md     # Source ledger: every claim is traceable
+├── reference-repos/           # External MBTI / personality reference repos (read-only)
 ├── references/
-│   ├── knowledge/             # Relationship science and interdisciplinary knowledge
-│   └── practical/             # Communication, tool integration, and memory rules
-├── documentation/             # Architecture, workflows, and safety boundaries
+│   ├── knowledge/             # Personality, relationship science, interdisciplinary knowledge
+│   └── practical/             # MBTI interviews, communication, tool integration, memory rules
+├── documentation/             # Architecture, workflows, audit report, safety boundaries
 └── scripts/
     ├── validate_skill.py      # Project integrity checks
     ├── memory_store.py        # Consent gate, bounded memory, revocation, and deletion

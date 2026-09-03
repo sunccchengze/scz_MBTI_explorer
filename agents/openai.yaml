@@ -1,4 +1,4 @@
 interface:
-  display_name: "狗头军师"
-  short_description: "安抚恋爱情绪，精研MBTI类型，分析聊天与关系"
-  default_prompt: "使用 $goutoujunshi 帮我梳理情绪、分析MBTI与当前关系，并给出下一步建议。"
+  display_name: "MBTI 探索者"
+  short_description: "以本人语料库为主语，精研MBTI类型，兼顾情绪与关系分析"
+  default_prompt: "使用 $scz-mbti-explorer 结合我的语料库，帮我定型、复盘决策风格并给出下一步建议。"

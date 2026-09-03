@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local, bounded, consent-gated memory store for the goutoujunshi skill."""
+"""Local, bounded, consent-gated memory store for the scz-mbti-explorer skill."""
 
 from __future__ import annotations
 
@@ -47,17 +47,40 @@ def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def memory_dir() -> Path:
-    override = os.environ.get("GOUTOUJUNSHI_MEMORY_DIR")
-    if override:
-        return Path(override).expanduser().resolve()
+APP_NAME = "scz-mbti-explorer"
+LEGACY_APP_NAME = "goutoujunshi"
+
+
+def _platform_dir(name: str) -> Path:
     if sys.platform == "darwin":
-        return Path.home() / "Library" / "Application Support" / "goutoujunshi"
+        return Path.home() / "Library" / "Application Support" / name
     if os.name == "nt":
         base = Path(os.environ.get("LOCALAPPDATA", str(Path.home())))
-        return base / "goutoujunshi"
+        return base / name
     base = Path(os.environ.get("XDG_DATA_HOME", str(Path.home() / ".local" / "share")))
-    return base / "goutoujunshi"
+    return base / name
+
+
+def memory_dir() -> Path:
+    """Return the bounded local store directory.
+
+    The skill was renamed from goutoujunshi to scz-mbti-explorer; an existing
+    legacy directory is moved once so previously consented archives survive.
+    """
+    override = os.environ.get("SCZ_MBTI_EXPLORER_MEMORY_DIR") or os.environ.get(
+        "GOUTOUJUNSHI_MEMORY_DIR"
+    )
+    if override:
+        return Path(override).expanduser().resolve()
+
+    target = _platform_dir(APP_NAME)
+    legacy = _platform_dir(LEGACY_APP_NAME)
+    if not target.exists() and legacy.is_dir():
+        try:
+            legacy.rename(target)
+        except OSError:
+            pass  # 迁移失败时退回新目录，不阻塞使用
+    return target
 
 
 def db_path() -> Path:
