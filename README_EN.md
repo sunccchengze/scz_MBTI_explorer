@@ -11,7 +11,7 @@ If it helps you spend less time overthinking and make one more clear-headed deci
 
 Most MBTI tools offer only two outcomes: “You are an INTJ” or “Take the test again.” MBTI Explorer tries to do better. It **reads your existing corpus first and only asks questions that would change the conclusion**. It hands you candidates, evidence, counterevidence, and falsification conditions together. It does not turn a type into a destiny, and it does not dress a few sentences up as a fake-precise percentage.
 
-It is not a quiz generator. It maintains a **corpus that keeps growing** (`corpus/`): a personal profile, a 29-item MBTI evidence ledger, expression DNA, a queue of open questions, and living memory. It also inherits a complete relationship-adviser toolkit — emotional support, chat-log analysis, relationship judgment, and sendable replies — but those are now **applications of personality exploration** rather than the entire product.
+It is not a quiz generator. It maintains a **corpus that keeps growing** (`corpus/`): a personal profile, a growing MBTI evidence ledger, expression DNA, a queue of open questions, and living memory. It also inherits a complete relationship-adviser toolkit — emotional support, chat-log analysis, relationship judgment, and sendable replies — but those are now **applications of personality exploration** rather than the entire product.
 
 > 📌 **Provenance (2026-09-03)**: this repository derives from the relationship adviser `goutoujunshi`
 > (upstream [shengjidaguai-china/goutoujunshi](https://github.com/shengjidaguai-china/goutoujunshi), MIT).
