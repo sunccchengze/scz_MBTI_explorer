@@ -1,0 +1,28 @@
+{
+  "schema": "turbine-bench/v0-draft",
+  "created": "2026-09-03",
+  "status": "DRAFT_IN_MBTI_REPO_NOT_TURBINE",
+  "rule": "落地前必须打开 turbine 原文复现；本文件是交接草稿",
+  "items": [
+    {"id": "Q01", "question": "工程开发划分下，测试集样本数 n_test 与 random_state 分别是多少？", "answer": "100；42", "source": {"path": "evidence/metrics.json", "pointer": "split.n_test / split.random_state"}, "grade": "E2"},
+    {"id": "Q02", "question": "留出集上残差 ONNX 的 R²（Compression_ratio / Efficiency / Massflow）是多少？", "answer": "0.9844 / 0.9561 / 0.9827", "source": {"path": "evidence/metrics.json", "pointer": "surrogate_holdout.r2"}, "grade": "E2"},
+    {"id": "Q03", "question": "同一划分下基线 MLP 的效率通道 R² 是多少？", "answer": "0.9132", "source": {"path": "evidence/metrics.json", "pointer": "baseline_mlp_holdout.r2.Efficiency"}, "grade": "E2"},
+    {"id": "Q04", "question": "n_train / n_val / n_test 是多少？是否为 PLAID 官方 test？", "answer": "800 / 100 / 100；不是（官方 test 200 组标签隐藏）", "source": {"path": "evidence/metrics.json", "pointer": "split"}, "grade": "E2"},
+    {"id": "Q05", "question": "MC Dropout 启发式带在效率 η 上的经验覆盖率是多少？", "answer": "0.65", "source": {"path": "evidence/metrics.json", "pointer": "mc_dropout_heuristic.empirical_coverage.Efficiency"}, "grade": "E2"},
+    {"id": "Q06", "question": "同一套带在压比与流量上的经验覆盖率？", "answer": "0.89 与 0.88", "source": {"path": "evidence/metrics.json", "pointer": "empirical_coverage.Compression_ratio / Massflow"}, "grade": "E2"},
+    {"id": "Q07", "question": "效率通道 MC Dropout 的 mean_sigma 是多少？", "answer": "0.0010", "source": {"path": "evidence/metrics.json", "pointer": "mean_sigma.Efficiency"}, "grade": "E2"},
+    {"id": "Q08", "question": "代理 NSGA-II 的 max_eta 精确到文件里的数是多少？", "answer": "0.9173097", "source": {"path": "evidence/metrics.json", "pointer": "nsga2_surrogate.max_eta"}, "grade": "E2"},
+    {"id": "Q09", "question": "max_eta 相对 train_mean_eta 的 delta_eta_vs_train_mean？对外能不能报 +5.4%？", "answer": "0.054；不能对外报", "source": {"path": "evidence/metrics.json", "pointer": "delta_eta_vs_train_mean"}, "grade": "E2"},
+    {"id": "Q10", "question": "代理 Pareto 最大流量 max_massflow（kg/s）？", "answer": "21.7379", "source": {"path": "evidence/metrics.json", "pointer": "nsga2_surrogate.max_massflow"}, "grade": "E2"},
+    {"id": "Q11", "question": "NSGA-II 约束 pi_min 与 eta_min？", "answer": "1.8 与 0.84", "source": {"path": "evidence/metrics.json", "pointer": "constraints"}, "grade": "E2"},
+    {"id": "Q12", "question": "NSGA-II 的 seed / pop / ngen / n_nondominated？", "answer": "42 / 100 / 200 / 100", "source": {"path": "evidence/metrics.json", "pointer": "nsga2_surrogate"}, "grade": "E2"},
+    {"id": "Q13", "question": "SU2 粗网格格子数、relrms_platform、是否 converged？", "answer": "140000；-3.39；false", "source": {"path": "evidence/metrics.json", "pointer": "su2_coarse"}, "grade": "E3"},
+    {"id": "Q14", "question": "74 维输入是设计变量吗？", "answer": "不是，是表面统计量", "source": {"path": "evidence/claims.yaml", "pointer": "C06"}, "grade": "E1"},
+    {"id": "Q15", "question": "三个输出能否称作 MDO？", "answer": "不能，三个输出都是气动标量", "source": {"path": "evidence/claims.yaml", "pointer": "C07"}, "grade": "E1"},
+    {"id": "Q16", "question": "C08「代理能正确排序设计 / Top-k 与 CFD 一致」的 status 与 decision_metrics？", "answer": "status=empty；decision_metrics 全为 null", "source": {"path": "evidence/claims.yaml", "pointer": "C08"}, "grade": "E4-empty"},
+    {"id": "Q17", "question": "claims.yaml forbidden_phrases 里与不确定度、可制造相关的两条原文？", "answer": "校准的 95% 置信区间；可制造的 Pareto 最优叶片", "source": {"path": "evidence/claims.yaml", "pointer": "forbidden_phrases"}, "grade": "E1"},
+    {"id": "Q18", "question": "MC Dropout 的 ±1.96σ 还能不能写成 95% CI？", "answer": "不能（nominal 字段写明曾被写成 95% CI，现禁止）", "source": {"path": "evidence/metrics.json", "pointer": "mc_dropout_heuristic.nominal"}, "grade": "E2"},
+    {"id": "Q19", "question": "郭振东 2025 CJA TNO 的预报顺序（相对三个标量代理）？", "answer": "先报 T, p, ρ 场，再派生性能", "source": {"path": "docs/guo-line-and-next-path.md", "pointer": "§1"}, "grade": "二次来源-待补论文页"},
+    {"id": "Q20", "question": "当前平台与郭老师路线能接上的唯一接口是什么？依据哪条覆盖率？", "answer": "加点 infill；η 经验覆盖率 65% 当作激波附近不可信的传感器", "source": {"path": "docs/guo-line-and-next-path.md", "pointer": "§2–3"}, "grade": "二次来源"}
+  ]
+}

@@ -182,7 +182,7 @@ Arena 的 token **能推代码，不能改仓库元数据**（描述、设置等
 | `documentation/` | 架构、流程、权限等设计文档 |
 | `references/` | 通用方法与知识库（MBTI 理论边界、访谈方法、关系知识 45 份） |
 | `reference-repos/` | 外部参考仓库快照（注意两个无许可证，只看不抄） |
-| `scripts/validate_skill.py` | 仓库结构校验（改完必跑） |
+| `corpus/handoff/` | 跨仓交接（S1 turbine bench 开局指令 + 草稿 JSON） |
 
 ---
 

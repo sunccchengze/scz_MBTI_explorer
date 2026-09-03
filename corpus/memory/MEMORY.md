@@ -127,3 +127,6 @@
 ### 2026-09-03 · 下一步：主线被本仓挤掉（监护 #6）
 
 - 本人问「忽略了什么」。结论：不是又一条人格题，是**进组主线**。今日会话几乎全耗在 MBTI/语料；开局速查主线仍是大二进组 + 103 页综述；`-SKILL-` 四个月脚印 **S1（turbine `bench/` 20 题 JSON）本月到期、尚未在本会话动过**。04 已亮 #6，荐 S1，等人拍板。
+### 2026-09-03 · 本人拍板 S1
+
+- 回「S1」。本会话**不改 turbine 仓**（Arena 通道绑在本仓分支）。已写交接：`corpus/handoff/S1-turbine-bench-开局指令.md` + 20 题草稿 JSON（数字从 turbine `evidence/metrics.json` / `claims.yaml` / `guo-line` 拉取；Q19–20 二次来源、禁止编论文页码）。下一步：本人开 turbine 新 Arena 会话，对照原文复现后 commit 到 `bench/`。S1 三小时停点后才 S2。
