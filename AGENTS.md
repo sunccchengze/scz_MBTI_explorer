@@ -166,6 +166,7 @@ Arena 的 token **能推代码，不能改仓库元数据**（描述、设置等
 | 文件/目录 | 里面是什么 |
 | --- | --- |
 | `corpus/memory/MEMORY.md` | 活记忆：跨会话只追加的偏好与进展（**开局必读**） |
+| `corpus/memory/drill-话外音.md` | 07 三选一练习账 |
 | `corpus/profile/00` | 人物档案（事实＋〔推断〕分层） |
 | `corpus/profile/01` | MBTI 证据账本：候选集、E01–E37 证据、四场对决、推翻条件 |
 | `corpus/profile/02` | 表达 DNA：禁用词、正向偏好、口语指纹（学他说话看这里） |
