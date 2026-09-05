@@ -151,3 +151,8 @@
 - 本人机器实测状态：Python **3.14**（`C:\Users\45120\AppData\Local\Programs\Python\Python314`），**pip.exe 启动器损坏**（Fatal error in launcher + 中文报错乱码成 `???????????`，即 CreateProcess 找不到内嵌路径的 python.exe）；crawl4ai 尚未装成。
 - **纪律固化**：给他的 Windows 命令一律 `python -m` 形式（`python -m pip ...` / `python -c "from crawl4ai.install import post_install; post_install()"`），不依赖 Scripts 里的 .exe 启动器与 PATH；PowerShell 5.1 逐行执行不写 `&&`；路径用 `.\` 或 `& "$env:LOCALAPPDATA\..."` 引号形式。
 - Plan B 留档：若 3.14 缺依赖 wheel（lxml/numpy 编译失败）→ 装 Python 3.12 用 `py -3.12` 重跑。
+### 2026-09-05 · Windows 环境修正 + crawl4ai 首跑通过（修正上一节）
+
+- **修正**：本人机器当前生效的 python 是 **Python 3.11**（`...\Python311`），非上一节记的 3.14（3.14 或已卸载/退出 PATH，未深究）。crawl4ai **0.9.3 已装成**，doctor 实网抓取 crawl4ai.com 通过（3.55s）→ 浏览器模式与 Chromium 就绪。
+- 首跑真实目标：SPIE Digital Library 会议论文页（turbomachinery 相关，10.1117/12.3117536）。预判 Cloudflare 反爬：`--http` 可能失败 → 浏览器模式 → `file://` 存页兜底（已给他三档方案）。
+- 判例（本人侧）：在用户主目录跑仓库相对路径命令 → 找不到文件；提醒先 `cd` 仓库根或给脚本全路径。
