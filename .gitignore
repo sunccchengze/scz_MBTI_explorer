@@ -7,6 +7,9 @@ __pycache__/
 # The raw research workspace is intentionally not part of the distributable skill.
 /恋爱知识库/
 
+# 一次性 HTML 交付物（HTML输出协议 §硬性规则 8）：本地 only，用完可删
+/outbox/
+
 # 外部参考仓库：体积大或含二进制素材的三个走脚本按需拉取，不进 Git。
 # 其余小型纯文本参考仓库随仓库一起提交，便于离线查阅与 diff。
 /reference-repos/ACGTI/

@@ -57,3 +57,8 @@ python3 scripts/crawl_corpus.py --http "file:///path/p.html"  # 离线测管道/
 - **未验证**：沙盒无法下载 Chromium、无直连外网，真实 https 抓取与浏览器模式未在沙盒端到端验证。本人机器首跑自检：
   `python3 scripts/crawl_corpus.py --http https://example.com`（报浏览器错就先跑 `crawl4ai-setup`）。
 - 沙盒调过的坑（留痕）：0.9.x 无 `BrowserlessConfig`（自定义 strategy 走 `PlainHttpStrategy`）；`exclude_tags` 改名 `excluded_tags`；`AsyncCrawlResponse` 在 `crawl4ai.models`；`crawl4ai.__version__` 是模块要取 `.__version__`。
+
+- 2026-09-05（同日第二轮）：
+  - **X 登录墙通道打通**：`api.fxtwitter.com/<user>/status/<id>`（fetch 工具通道）可拿帖子原文/作者/视频元数据/X 长文全文——小白帖与 Thariq 长文已快照入库（W1/W2，见 `corpus/sources/crawled/` + `SOURCES.md` 第六节）。crawl4ai 脚本本身抓 X 仍受登录墙限制，fxtwitter 是首选旁路。
+  - **沙盒网络边界确认**：bash 无直连外网（curl/wget 到 twimg 均 TLS 失败、无 proxy 配置）；外网事实核查一律走 fetch 工具。
+  - **环境锚点**：本人本机为 Windows PowerShell 5.1——交付命令禁用 `&&`（PS 5.1 不认），逐行执行或 `;`。

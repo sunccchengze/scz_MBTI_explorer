@@ -139,3 +139,10 @@
 - 主人问"crawl4ai 这种爬虫该怎样才能为我所用"。交付：`scripts/crawl_corpus.py`（URL→Markdown 快照→`corpus/sources/crawled/` + INBOX 台账，只追加不覆盖，默认守 robots.txt，`--http` 无浏览器模式）+ `documentation/crawl4ai-抓取入库.md`（用法/边界/红线）。
 - 验证状态如实记：0.9.3 离线路径（file://→快照→INBOX，含撞车 -2 后缀）✅；沙盒下不了 Chromium、无外网，真实 https 与浏览器模式**待本人机器首跑**确认。
 - 协议锚点未变：抓到的网页=外部材料，引用前须过目 + 登记 `sources/SOURCES.md`；登录墙不硬抓；他人私密页面不抓。
+### 2026-09-05 · 第二轮：抓取通道首战 + 本人指令 HTML 输出 + 视频流程交付
+
+- **抓取通道首战**：X 登录墙用 **fxtwitter API**（`api.fxtwitter.com/<user>/status/<id>`，fetch 工具通道）穿透成功 → 拿下帖子原文、作者、视频元数据、长文全文（小白帖 + Thariq 长文，快照 W1/W2 已入 `corpus/sources/crawled/`）。crawl4ai 脚本本身仍待本人机器首跑。
+- **环境锚点（新增）**：本人本机 = **Windows PowerShell 5.1**（`PS C:\Users\45120>`）。给他的命令必须 PowerShell 语法：`&&` 连用会报"不是有效语句分隔符"（本日首错），改逐行或 `;`；路径用 `.\` 或正斜杠。
+- **本人指令**："以后让我的 agent 都全部以这种 HTML 的形式输出内容"（指 Thariq《The Unreasonable Effectiveness of HTML》）。落地：`references/practical/HTML输出协议.md` + 模板 `references/practical/html-templates/00-base-template.html` + SKILL.md「输出格式」节 + AGENTS.md §2.8。核心边界（Thariq 本人限定 + 本仓 git 纪律）：**Markdown 仍是 source of truth，HTML 只作给人读的成品交付物表现层，落 `outbox/`（gitignored）**。
+- **交付物**：`outbox/知识短视频完整流程.html`（小白 46s 知识讲解视频的完整制作流程：LLM 脚本 → edge-tts → 画面 → 自动 SRT → `knowledge_video.py` ffmpeg 一键合成 → X 原生发布）。**合成段已实测**（3 图 + 7.6s 音频 → 1920×1080 30fps 成片，字幕时间轴精确；修过 2 个真 bug：ffmpeg -i 退出码、zoompan 前缺 fps=30 导致时长缩 25/30）。TTS 段需联网未测；视频内画面 =〔推断〕（沙盒无外网播不了，推翻条件：本人发帧截图）。
+- **判例（工具侧）**：沙盒无直连外网（curl/wget TLS 失败、无 proxy），但 fetch_page/fxtwitter 工具通道可用 → 外网事实核查走工具，不走 bash。

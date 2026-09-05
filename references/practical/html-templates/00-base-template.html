@@ -1,0 +1,132 @@
+<!doctype html>
+<!--
+  00-base-template.html — 本仓 HTML 交付物基模板
+  用法：复制本文件 → 按注释填内容 → 删掉用不到的示例块。
+  硬性规则见 references/practical/HTML输出协议.md：单文件零依赖 / SVG / TL;DR 先行 / 深浅双模式 / 页脚 meta。
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交付物标题</title>
+<style>
+  :root{
+    --bg:#f7f7f5; --card:#fff; --fg:#1a1a1a; --muted:#6b6b6b;
+    --line:#e3e3e0; --accent:#2456d6; --accent-soft:#e8eefc;
+    --ok:#177245; --ok-soft:#e5f4ec; --warn:#9a6700; --warn-soft:#fdf3dd;
+    --bad:#b3261e; --bad-soft:#fbe9e7; --code-bg:#f0f0ee;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141416; --card:#1d1d21; --fg:#e8e8e6; --muted:#9a9a9a;
+      --line:#2c2c31; --accent:#7ba0f5; --accent-soft:#20293f;
+      --ok:#4cc38a; --ok-soft:#17301f; --warn:#e0b341; --warn-soft:#33290f;
+      --bad:#f0716a; --bad-soft:#381714; --code-bg:#232328;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:1.7em;line-height:1.3;margin:.2em 0 .4em}
+  h2{font-size:1.25em;margin:2em 0 .6em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+  h3{font-size:1.05em;margin:1.4em 0 .4em}
+  a{color:var(--accent)}
+  .meta{color:var(--muted);font-size:.85em}
+  /* TL;DR：顶部结论框，3–5 条 */
+  .tldr{background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin:20px 0}
+  .tldr b{display:block;margin-bottom:6px}
+  .tldr ul{margin:0;padding-left:20px}
+  .tldr li{margin:.25em 0}
+  /* 状态卡片：已验证 / 推断 / 待确认 */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:16px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .card.ok{border-color:var(--ok)} .card.ok h3{color:var(--ok);margin-top:0}
+  .card.warn{border-color:var(--warn)} .card.warn h3{color:var(--warn);margin-top:0}
+  .card.bad{border-color:var(--bad)} .card.bad h3{color:var(--bad);margin-top:0}
+  .card h3{font-size:.95em}
+  .card ul{margin:.4em 0 0;padding-left:18px;font-size:.92em}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.93em;background:var(--card)}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--code-bg)}
+  .tblwrap{overflow-x:auto}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:8px;padding:14px;overflow-x:auto;font-size:.88em;line-height:1.6}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code,li code,td code{background:var(--code-bg);padding:.1em .35em;border-radius:4px;font-size:.9em}
+  details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0}
+  summary{cursor:pointer;font-weight:600}
+  svg{max-width:100%;height:auto}
+  .flow{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px 0}
+  footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85em}
+  @media (max-width:720px){ .wrap{padding:20px 14px 48px} h1{font-size:1.4em} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="meta">交付物 · 2026-09-05 17:40 +0800 · 来源：… · 生成者：…</div>
+  <h1>标题：一句话把主题说完</h1>
+  <p class="meta">副标题：这页给谁看、解决什么问题</p>
+
+  <!-- TL;DR：先给结论，3–5 条，让读者 10 秒知道值不值 -->
+  <div class="tldr"><b>TL;DR</b><ul>
+    <li>结论一（带数字）。</li>
+    <li>结论二。</li>
+    <li>结论三：怎么做 / 何时用。</li>
+  </ul></div>
+
+  <!-- 已验证 vs 推断：诚实分层，推断必须给推翻条件 -->
+  <div class="grid">
+    <div class="card ok"><h3>✅ 已验证</h3><ul><li>事实 A（来源：…）</li><li>事实 B</li></ul></div>
+    <div class="card warn"><h3>〔推断〕</h3><ul><li>推断 C —— 推翻条件：什么现象出现时不成立</li></ul></div>
+  </div>
+
+  <h2 id="toc-1">一、主体内容</h2>
+  <p>正文。表格、SVG、代码示例都放这里。</p>
+
+  <!-- SVG 流程图示例：节点 + 箭头 -->
+  <div class="flow">
+    <svg viewBox="0 0 840 120" role="img" aria-label="流程示例">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs>
+      <g font-size="14" text-anchor="middle">
+        <rect x="10"  y="35" width="130" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="75"  y="65">步骤 1</text>
+        <rect x="190" y="35" width="130" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="255" y="65">步骤 2</text>
+        <rect x="370" y="35" width="130" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="435" y="65">步骤 3</text>
+        <rect x="550" y="35" width="130" height="50" rx="8" fill="var(--ok-soft)" stroke="var(--ok)"/><text x="615" y="65">步骤 4</text>
+        <rect x="730" y="35" width="100" height="50" rx="8" fill="var(--warn-soft)" stroke="var(--warn)"/><text x="780" y="65">产出</text>
+        <line x1="140" y1="60" x2="188" y2="60" stroke="var(--muted)" marker-end="url(#ar)"/>
+        <line x1="320" y1="60" x2="368" y2="60" stroke="var(--muted)" marker-end="url(#ar)"/>
+        <line x1="500" y1="60" x2="548" y2="60" stroke="var(--muted)" marker-end="url(#ar)"/>
+        <line x1="680" y1="60" x2="728" y2="60" stroke="var(--muted)" marker-end="url(#ar)"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- 表格示例 -->
+  <div class="tblwrap">
+  <table>
+    <tr><th>项</th><th>做法</th><th>成本</th><th>备注</th></tr>
+    <tr><td>A</td><td>…</td><td>免费</td><td>…</td></tr>
+    <tr><td>B</td><td>…</td><td>付费</td><td>…</td></tr>
+  </table>
+  </div>
+
+  <!-- 代码块示例 -->
+  <h3>可复制的命令 / 脚本</h3>
+  <pre><code>pip install xxx
+python script.py --flag</code></pre>
+
+  <!-- 可折叠细节 -->
+  <details><summary>展开：更细的参数说明</summary><p>…</p></details>
+
+  <h2 id="toc-2">二、边界与停止条件</h2>
+  <p>什么情况下这套方法不成立、何时停、怎么知道它失效了。</p>
+
+  <footer>
+    生成时间：2026-09-05 17:40 +0800 · 数据来源：（文件/URL 逐条列） · 生成者：（agent + 会话分支）<br>
+    协议：<code>references/practical/HTML输出协议.md</code> · 本文件为一次性交付物，可删除。
+  </footer>
+</div>
+</body>
+</html>

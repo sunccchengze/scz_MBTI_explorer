@@ -47,6 +47,7 @@
 | 2.5 | 只问会改变结论的问题 | 问题队列在 `corpus/profile/03`；已饱和维度不再问 |
 | 2.6 | 极简收束 | 给判断不读心；给能执行的小动作＋停止条件；追问控制在 1–3 个 |
 | 2.7 | 话术成品可直接发送 | 需要回复文字时结合原文直接生成可发送成品，不给半成品 |
+| 2.8 | 成品交付物格式（2026-09-05，本人指令） | 给人读的成品交付物（报告/对比/讲解/计划/看板/幻灯片）默认单文件 HTML（零外部依赖、SVG 图、TL;DR 先行、落 `outbox/`）；对话回复与 git 内文件仍是 Markdown。细则 `references/practical/HTML输出协议.md` |
 
 ---
 
@@ -182,6 +183,10 @@ Arena 的 token **能推代码，不能改仓库元数据**（描述、设置等
 | `documentation/` | 架构、流程、权限等设计文档 |
 | `references/` | 通用方法与知识库（MBTI 理论边界、访谈方法、关系知识 45 份） |
 | `reference-repos/` | 外部参考仓库快照（注意两个无许可证，只看不抄） |
+| `references/practical/HTML输出协议.md` | 成品交付物 HTML 输出协议（2026-09-05，依据 Thariq 长文 W1） |
+| `references/practical/html-templates/` | HTML 交付物基模板 |
+| `outbox/` | 一次性 HTML 交付物（本地 only，不进 git） |
+| `scripts/crawl_corpus.py` | 网页抓取入库（crawl4ai 适配：快照 + INBOX 只追加） |
 | `corpus/handoff/` | 跨仓交接（S1 turbine bench 开局指令 + 草稿 JSON） |
 
 ---
