@@ -134,3 +134,8 @@
 
 - 1 号 `01a06630` @ `0fc15bca`：题库+自检+反向自测+F1/F2/F3。2 号 `01a0662f` @ `7acde761`：题库+verify，Q17 更唯一。
 - 建议用 1 号。F1 修正：0.054 就是相对 5.4%，绝对差是 0.047；1 号「6.2%」把相对量又除了一次。详 `corpus/handoff/S1-两Agent审计-2026-09-03.md`。不改 turbine、不合 PR。
+### 2026-09-05 · 网页抓取入库通道建立（crawl4ai）
+
+- 主人问"crawl4ai 这种爬虫该怎样才能为我所用"。交付：`scripts/crawl_corpus.py`（URL→Markdown 快照→`corpus/sources/crawled/` + INBOX 台账，只追加不覆盖，默认守 robots.txt，`--http` 无浏览器模式）+ `documentation/crawl4ai-抓取入库.md`（用法/边界/红线）。
+- 验证状态如实记：0.9.3 离线路径（file://→快照→INBOX，含撞车 -2 后缀）✅；沙盒下不了 Chromium、无外网，真实 https 与浏览器模式**待本人机器首跑**确认。
+- 协议锚点未变：抓到的网页=外部材料，引用前须过目 + 登记 `sources/SOURCES.md`；登录墙不硬抓；他人私密页面不抓。
