@@ -146,3 +146,8 @@
 - **本人指令**："以后让我的 agent 都全部以这种 HTML 的形式输出内容"（指 Thariq《The Unreasonable Effectiveness of HTML》）。落地：`references/practical/HTML输出协议.md` + 模板 `references/practical/html-templates/00-base-template.html` + SKILL.md「输出格式」节 + AGENTS.md §2.8。核心边界（Thariq 本人限定 + 本仓 git 纪律）：**Markdown 仍是 source of truth，HTML 只作给人读的成品交付物表现层，落 `outbox/`（gitignored）**。
 - **交付物**：`outbox/知识短视频完整流程.html`（小白 46s 知识讲解视频的完整制作流程：LLM 脚本 → edge-tts → 画面 → 自动 SRT → `knowledge_video.py` ffmpeg 一键合成 → X 原生发布）。**合成段已实测**（3 图 + 7.6s 音频 → 1920×1080 30fps 成片，字幕时间轴精确；修过 2 个真 bug：ffmpeg -i 退出码、zoompan 前缺 fps=30 导致时长缩 25/30）。TTS 段需联网未测；视频内画面 =〔推断〕（沙盒无外网播不了，推翻条件：本人发帧截图）。
 - **判例（工具侧）**：沙盒无直连外网（curl/wget TLS 失败、无 proxy），但 fetch_page/fxtwitter 工具通道可用 → 外网事实核查走工具，不走 bash。
+### 2026-09-05 · Windows 环境补丁（命令给法纪律）
+
+- 本人机器实测状态：Python **3.14**（`C:\Users\45120\AppData\Local\Programs\Python\Python314`），**pip.exe 启动器损坏**（Fatal error in launcher + 中文报错乱码成 `???????????`，即 CreateProcess 找不到内嵌路径的 python.exe）；crawl4ai 尚未装成。
+- **纪律固化**：给他的 Windows 命令一律 `python -m` 形式（`python -m pip ...` / `python -c "from crawl4ai.install import post_install; post_install()"`），不依赖 Scripts 里的 .exe 启动器与 PATH；PowerShell 5.1 逐行执行不写 `&&`；路径用 `.\` 或 `& "$env:LOCALAPPDATA\..."` 引号形式。
+- Plan B 留档：若 3.14 缺依赖 wheel（lxml/numpy 编译失败）→ 装 Python 3.12 用 `py -3.12` 重跑。
